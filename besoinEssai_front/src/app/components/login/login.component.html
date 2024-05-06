@@ -1,0 +1,38 @@
+
+<div class="body">
+    <nav class="navbar-one flex">
+        <div class="left flex">
+            <div class="nom_entite">
+                <span class="entite">AUTHENTIFICATION</span>
+            </div>
+        </div>
+    </nav>
+    
+    <nav class="navbar-second">
+        <div class="logo">
+            <i class="fa-solid fa-arrow-right-to-bracket icon"></i>            
+            <span>Page d'authentification</span>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="login form">
+            <header>Authentification</header>
+            <div *ngIf="errorMessages.length > 0" class="error-messages">
+                <div *ngFor="let errorMessage of errorMessages">{{ errorMessage }}</div>
+            </div>
+            <form (submit)="Authentification()">
+                <input type="text" [(ngModel)]="email" name="email" placeholder="Entrer votre email"  required>
+                <input type="password" [(ngModel)]="motDePasse" name="motDePasse" placeholder="Entrer votre mot de passe"  required>
+                <input type="submit" value="S'authentifier" class="button">
+            </form>
+            <div class="signup">
+            <span class="signup">Pas encore membre? 
+            <a [routerLink]="['/ajoutUtilisateur']">Creer un compte</a>
+            </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

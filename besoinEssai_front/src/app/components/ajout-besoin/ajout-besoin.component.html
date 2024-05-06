@@ -1,0 +1,122 @@
+<!-- <form (submit)="ajoutBesoin()">
+    <div class="form-group">
+
+      <label for="nomApp">Nom de l'application</label>
+      <input type="text" [(ngModel)]="nomApp" name="nomApp" required>
+  
+      <label for="titre">Titre du besoin</label>
+      <input type="text" [(ngModel)]="titre" name="titre" required>
+  
+      <label for="email">Description de l'application</label>
+      <input type="text" [(ngModel)]="description" name="description" required>
+
+      <label for="email">Email de l'utilisateur</label>
+      <input type="text" [(ngModel)]="email" name="email" required>
+
+      <button type="submit" class="btn btn-primary">Enregistrer</button>
+    </div>
+  </form> -->
+  
+
+  <div class="body">
+
+
+    <nav class="navbar-one flex">
+      <div class="left flex">
+          <div class="nom_entite">
+              <span class="entite" (click)="naviguerAcceuil()">SVTFA</span>
+          </div>
+      </div>
+      <div class="right flex">
+        <div class="message" (click)="naviguerMessage()">
+            <i class="fa-solid fa-message icon"></i><span class="numMess" >{{nombreMessage}}</span>
+        </div>
+        <div class="notification" (click)="naviguerNotification()" >
+            <i class="fa-solid fa-bell icon"></i><span class="numMess">{{nombreCommentaire}}</span>       
+        </div>
+          <div class="nom_utilisateur">
+              <span *ngIf="nomUtilisateur" class="utilisateur">{{ nomUtilisateur.nomComplet }}</span>
+              <div class="deconnexion">
+                <div class="container-deconnexion" (click)="Deconnexion()">
+                    <i class="fa-solid fa-right-from-bracket icon2"></i>
+                    <span>Deconnexion</span>
+                </div>
+            </div>
+          </div>
+      </div>
+  </nav>
+  
+  <nav class="navbar-second">
+      <div class="logo">
+        <i class="fa-solid fa-plus icon"></i>
+        <span>Ajout de besoin</span>
+      </div>
+  </nav>
+
+    <div class="container">
+        <div class="login form">
+            <header>Ajout des besoins</header>
+            <form action="" (submit)="ajoutBesoin()">
+              <input type="text" placeholder="Entrer le nom de l'application" [(ngModel)]="nomApp" name="nomApp" required>
+              <input type="text" placeholder="Entrer le besoin" [(ngModel)]="titre" name="titre" required>
+              <input type="text" placeholder="Decriver le besoin" [(ngModel)]="description" name="description" required>
+              <input type="text" placeholder="Entrer l'email du client" [(ngModel)]="email" name="email" required>
+              <input type="submit" value="Enregistrer" class="button">
+            </form>
+        </div>
+    </div>
+</div>
+<div class="container-modal modal">
+    <div class="success-modal" *ngIf="isModalVisible">
+        <div class="modal-content">
+            <i class="fa-solid fa-check check"></i>
+            <h2>Succès!</h2>
+            <p>Le besoin a été ajouté avec succès.</p>
+            <button (click)="closeSuccessModal()">OK</button>
+        </div>
+    </div>
+</div>
+<div class="container-modal-echec modal">
+    <div class="echec-modal" *ngIf="isModalVisible2">
+        <div class="modal-content-echec">
+            <i class="fa-solid fa-xmark mark"></i>            
+            <h2>Echec!</h2>
+            <p>Un probleme est survenu lors de l'ajout de besoin.</p>
+            <button (click)="closeEchecModal()">OK</button>
+        </div>
+    </div>
+</div>
+<div class="messageModal" *ngIf="isSuccessModalVisible">
+    <ul>
+        <h1>Messages</h1>
+        <li *ngFor="let message of messages">
+            <p>Message : {{message?.texteMessage}}<br>Envoye par : <strong>{{message?.utilisateurEmetteur}}</strong></p>
+            <div class="date">
+                <h3>{{message?.dateMessage | date:'dd'}}<br>
+                    <span>{{message?.dateMessage | date:'MM'}}</span>
+                </h3>
+                <button (click)="marquerCommeLu(message)">Marquer comme lu</button>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="commentaireModal" *ngIf="isSuccess2ModalVisible">
+    <ul>
+        <h1>Notifications</h1>
+        <li *ngFor="let commentaire of commentaires">
+            <div class="date">
+                <h3>{{commentaire?.dateCommentaire | date:'dd'}}<br>
+                    <span>{{commentaire?.dateCommentaire | date:'MM'}}</span>
+                </h3>
+                
+            </div>
+            <p>{{commentaire?.texteCommentaire}}<br>Envoye par : <strong>{{commentaire?.utilisateurEmetteur}}</strong></p>
+            <button (click)="marquerCommeLuComs(commentaire)">Marquer comme lu</button>
+        </li>
+    </ul>
+</div>
+
+
+
+

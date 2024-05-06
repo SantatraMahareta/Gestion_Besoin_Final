@@ -1,0 +1,45 @@
+<!-- <p *ngIf="nomUtilisateur">Bienvenu {{ nomUtilisateur.nomComplet }}</p> -->
+<div class="body">
+
+
+
+    <nav class="navbar-one flex">
+        <div class="left flex">
+            <div class="nom_entite">
+                <span class="entite">SRSBD</span>
+            </div>
+        </div>
+        <div class="right flex">
+            <div class="nom_utilisateur">
+                <span *ngIf="nomUtilisateur" class="utilisateur">{{ nomUtilisateur.nomComplet }}</span>
+                <div class="deconnexion">
+                    <div class="container-deconnexion" (click)="Deconnexion()">
+                        <i class="fa-solid fa-right-from-bracket icon2"></i>
+                        <span>Deconnexion</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <nav class="navbar-second">
+        <div class="logo">
+            <i class="fa-solid fa-house icon"></i><br>       
+            <span>Page d'acceuil</span>
+        </div>
+    </nav>
+
+
+    <section class="home" id="home">
+        <div class="content">
+            <span *ngIf="nomUtilisateur">Bienvenue <b>{{ nomUtilisateur.nomComplet }}</b> dans la page d'acceuil, cette page est dediée aux employés du departement de <b>SRSBD</b></span>
+        </div>
+        <div class="box-container" >
+            <div class="box"(click)="naviguerApplication()">
+                <i class="fa-solid fa-check icon"></i>
+                <h3>Valider les appllications</h3>
+            </div>
+        </div>
+    </section>
+</div>
+

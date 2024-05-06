@@ -1,0 +1,106 @@
+<div class="container">
+
+  <div class="sidebar">
+    <div class="logo">
+      <ul class="menu">
+
+        <li (click)="naviguerAcceuil()">
+
+          <i class="fa-solid fa-house icon2"></i>
+          <span>Acceuil</span>
+
+        </li>
+
+        <li (click)="naviguerApplication()">
+
+          <i class="fa-solid fa-check icon2"></i>
+          <span>Valider</span>
+
+        </li>
+
+        <li (click)="naviguerListe()">
+
+          <i class="fa-solid fa-list icon2"></i>
+          <span>Liste</span>
+
+        </li>
+
+        <li (click)="naviguerCreation()">
+
+          <i class="fa-solid fa-plus icon2"></i>
+          <span>Ajout</span>
+
+        </li>
+
+
+        <li (click)="naviguerInformer()">
+
+          <i class="fa-solid fa-message icon2"></i>
+          <span>Informer</span>
+
+        </li>
+
+        <li class="logout" (click)="Deconnexion()">
+
+          <i class="fa-solid fa-right-from-bracket icon2"></i>
+          <span>Deconnexionn</span>
+
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tabular--wrapper">
+    <h1 class="main-title">Valider les besoins</h1>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Application</th>
+            <th>Besoin</th>
+            <th>Description</th>
+            <th>Date Creation</th>
+            <th>Email</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let besoin of besoins | paginate: { itemsPerPage: 5, currentPage: p }">
+            <td>{{besoin?.application?.nomApplication}}</td>
+            <td>{{besoin?.titreBesoin}}</td>
+            <td>{{besoin?.descriptionBesoin}}</td>
+            <td>{{besoin?.dateCreation | date:'dd/MM/YYYY'}}</td>
+            <td>{{besoin?.utilisateur?.email}}</td>
+            <td class="bouton"><button class="valider" (click)="onValid(besoin)">Valider</button>
+            </td>
+          </tr>
+        </tbody>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </table>
+
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container-modal">
+  <div class="success-modal" *ngIf="isModalVisible">
+    <div class="modal-content">
+      <i class="fa-solid fa-check check"></i>
+      <h2>Succès!</h2>
+      <p>Validation de besoin avec succès.</p>
+      <button (click)="closeSuccessModal()">OK</button>
+    </div>
+  </div>
+</div>
+<div class="container-modal-echec">
+  <div class="echec-modal" *ngIf="isModalVisible2">
+    <div class="modal-content-echec">
+      <i class="fa-solid fa-xmark mark"></i>
+      <h2>Echec!</h2>
+      <p>Un probleme est survenu lors de la validation de besoin.</p>
+      <button (click)="closeEchecModal()">OK</button>
+    </div>
+  </div>
+</div>

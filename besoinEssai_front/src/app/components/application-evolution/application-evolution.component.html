@@ -1,0 +1,59 @@
+<div class="body">
+
+    <nav class="navbar-one flex">
+        <div class="left flex">
+            <div class="nom_entite">
+                <span class="entite" (click)="naviguerAcceuil()">SCDSI</span>
+            </div>
+        </div>
+        <div class="right flex">
+            <div class="nom_utilisateur">
+                <span *ngIf="nomUtilisateur" class="utilisateur">{{ nomUtilisateur.nomComplet }}</span>
+                <div class="deconnexion">
+                    <div class="container-deconnexion" (click)="Deconnexion()">
+                        <i class="fa-solid fa-right-from-bracket icon2"></i>
+                        <span>Deconnexion</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <nav class="navbar-second">
+        <div class="logo">
+            <i class="fa-solid fa-list icon"></i>
+            <span>Liste des applications</span>
+        </div>
+    </nav>
+
+<!-- 
+    <div class="to-do-list">
+        <h2>Liste des applications</h2>
+    <div *ngFor="let application of applications">
+        <div class="list-info ">
+            <ul>
+                <li class="list">
+                    <a [routerLink]="['/voirEvolution', application.applicationId]">
+                    {{ application?.nomApplication }}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    </div> -->
+
+
+    <div class="application-list">
+        <div class="application" *ngFor="let application of applications" (click)="naviguerEvolution(application.applicationId)">
+          <p>
+            <!-- <a href=""> -->
+                {{ application?.nomApplication }}
+            <!-- </a> -->
+          </p>
+        </div>
+      </div>
+
+</div>
+
+
+
+

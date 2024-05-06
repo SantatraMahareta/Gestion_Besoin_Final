@@ -1,0 +1,21 @@
+<header>
+ <div class="navbar">
+    <div class="logo"><h1>SVTFA</h1></div>
+    <ul class="links">
+        <li><a href="liste" routerLink="applicationSvtfa" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Liste</a></li>
+        <li><a href="creation" routerLink="ajoutBesoin" routerLinkActive="active">Creation</a></li>
+        <li><a href="notification" routerLink="notification/:id" routerLinkActive="active">Notification</a></li>
+        <li><a href="informer" routerLink="message/:id" routerLinkActive="active">Informer</a></li>
+    </ul>
+    <h3 class="action-btn">Nom Complet</h3>
+    <div class="toggle_btn" (click)="toggleMenu()">
+        <i [ngClass]="{'fas fa-bars': !isMenuOpen, 'fa-solid fa-xmark': isMenuOpen}"></i>    </div>
+ </div>
+ <div class="dropdown_menu" [ngClass]="{'open': isMenuOpen}">
+    <li><a href="liste" routerLink="applicationSvtfa" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Liste</a></li>
+    <li><a href="creation" routerLink="ajoutBesoin" routerLinkActive="active">Creation</a></li>
+    <li><a href="notification" routerLink="notification/:id" routerLinkActive="active">Notification</a></li>
+    <li><a href="informer" routerLink="message/:id" routerLinkActive="active">Informer</a></li>
+    <!-- <li><h3 class="action-btn">Nom Complet</h3></li> -->
+</div>
+</header>

@@ -1,0 +1,138 @@
+<div class="container">
+  <div class="sidebar">
+    <div class="logo">
+      <ul class="menu">
+
+        <li (click)="naviguerAcceuil()">
+            <!-- <a href=""> -->
+              <i class="fa-solid fa-house icon2"></i>       
+              <span>Acceuil</span>   
+            <!-- </a>         -->
+        </li>
+
+        <li (click)="naviguerApplication()">
+          <!-- <a href=""> -->
+            <i class="fa-solid fa-list icon2"></i>
+            <span>Liste</span>
+          <!-- </a> -->
+        </li>
+
+        <li (click)="naviguerRepartir()">
+          <!-- <a href=""> -->
+            <i class="fa-solid fa-user icon2"></i>
+            <span>Repartir</span>
+          <!-- </a> -->
+        </li>
+
+        <li (click)="naviguerChart()">
+          <!-- <a href=""> -->
+            <i class="fa-solid fa-chart-pie icon2"></i>
+            <span>Evolution</span>
+          <!-- </a> -->
+        </li>
+        <li class="logout" (click)="Deconnexion()">
+          <!-- <a href=""> -->
+            <i class="fa-solid fa-right-from-bracket icon2"></i>
+          <span>Deconnexion</span>
+          <!-- </a> -->
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  
+    <div class="main--content">
+      <div class="header--wrapper">
+        <div class="header--title">
+          <h2>Evolution</h2>
+          <span>A propos du traitement des besoins</span>
+        </div>
+        <div class="user--info">
+          <div class="search--box">
+            <!-- <i class="fa-sharp fa-regular fa-magnifying-glass"></i> -->
+            <button (click)="getBesoins()"><i class="fa-solid fa-search" ></i></button>
+              <!-- <fa-icon [icon]="faSearch"></fa-icon> -->
+            <input type="text" placeholder="rechercher" [(ngModel)]="recherche"/>
+          </div>
+          <!-- <h2 id="nom_utilisateur">Eren</h2> -->
+        </div>
+      </div>
+  
+  
+  
+      <div class="card--container">
+        <h3 class="main--title">Les valeurs en pourcentages du traitement des besoins</h3>
+        <div class="card--wrapper">
+          <div class="Encours--card light-purple">
+            <div class="card--header">
+              <div class="amount">
+                <Span class="title">
+                  Pas encore traite
+                </Span><br>
+                <span class="amount--value">
+                  {{chartDonnees.pasTraiteCount | number: '1.2-2'}}%
+                </span>
+              </div>
+              <i class="fa-solid fa-percent icon"></i>
+            </div>
+          </div>
+          <div class="Encours--card light-red">
+            <div class="card--header">
+              <div class="amount">
+                <Span class="title">
+                  Fini
+                </Span><br>
+                <span class="amount--value">
+                  {{chartDonnees.finiCount | number: '1.2-2'}}%
+                </span>
+              </div>
+              <i class="fa-solid fa-percent icon dark-red"></i>
+            </div>
+          </div>
+          <div class="Encours--card light-blue">
+            <div class="card--header">
+              <div class="amount">
+                <Span class="title">
+                  En cours
+                </Span><br>
+                <span class="amount--value">
+                  {{chartDonnees.encours | number: '1.2-2'}}%
+                </span>
+              </div>
+              <i class="fa-solid fa-percent icon dark-blue"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="tabular--wrapper">
+        <h3 class="main-title">besoins data</h3>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Application</th>
+                <th>Besoin</th>
+                <th>Description</th>
+                <th>Date Creation</th>
+                <th>Email</th>
+                <th>Etat Besoin</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let besoin of besoins">
+                <td>{{besoin?.application?.nomApplication}}</td>
+                <td>{{besoin?.titreBesoin}}</td>
+                <td>{{besoin?.descriptionBesoin}}</td>
+                <td>{{besoin?.dateCreation | date:'dd/MM/YYYY'}}</td>
+                <td>{{besoin?.utilisateur?.email}}</td>
+                <td color="red">{{besoin?.etatBesoin}}</td>
+              </tr>
+            </tbody>
+          </table>
+          
+        </div>
+      </div>
+  
+    </div>
+  </div>

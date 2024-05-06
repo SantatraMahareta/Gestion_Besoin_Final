@@ -1,0 +1,76 @@
+
+<div class="body">
+
+    <nav class="navbar-one flex">
+        <div class="left flex">
+            <div class="nom_entite">
+                <span class="entite">CLIENT</span>
+            </div>
+        </div>
+        <div class="right flex">
+            <div class="message" (click)="naviguerMessage()">
+                <i class="fa-solid fa-message icon"></i><span class="numMess" >{{nombreMessage}}</span>
+
+                
+            </div>
+
+            <div class="nom_utilisateur">
+                <span *ngIf="nomUtilisateur" class="utilisateur">{{ nomUtilisateur.nomComplet }}</span>
+                <div class="deconnexion">
+                    <div class="container-deconnexion" (click)="Deconnexion()">
+                        <i class="fa-solid fa-right-from-bracket icon2"></i>
+                        <span>Deconnexion</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <nav class="navbar-second">
+        <div class="logo">
+            <i class="fa-solid fa-house icon"></i><br>       
+            <span>Page d'acceuil</span>
+        </div>
+    </nav>
+
+
+
+    <section class="home" id="home">
+        <div class="content">
+            <span *ngIf="nomUtilisateur">Bienvenue <b>{{ nomUtilisateur.nomComplet }}</b> dans la page d'acceuil, cette page est dediée aux <b>CLIENTS</b></span>
+        </div>
+        <div class="box-container">
+            <div class="box" (click)="naviguerApplication()">
+                <i class="fa-solid fa-list icon"></i>
+                <h3>Liste des besoins</h3>
+            </div>
+            <!-- <div class="box" (click)="naviguerMessage()">
+                <i class="fa-solid fa-envelope"></i>
+                <span>{{nombreMessage}}</span>
+                <h3>Message recus</h3>
+            </div> -->
+            <div class="box" (click)="naviguerChart()">
+                <i class="fa-solid fa-chart-pie icon"></i>
+                <h3>Evolution du traitement des besoins</h3>
+            </div>
+            
+        </div>
+    </section>
+</div>
+
+<div class="messageModal" *ngIf="isSuccessModalVisible">
+    <ul>
+        <h1>Messages</h1>
+        <li *ngFor="let message of messages">
+            <p>Message : {{message?.texteMessage}}<br>Envoye par : <strong>{{message?.utilisateurEmetteur}}</strong></p>
+            <div class="date">
+                <h3>{{message?.dateMessage | date:'dd'}}<br>
+                    <span>{{message?.dateMessage | date:'MM'}}</span>
+                </h3>
+                <span (click)="marquerCommeLu(message)" class="marquer">Lu</span>
+            </div>
+        </li>
+    </ul>
+</div>
+
+

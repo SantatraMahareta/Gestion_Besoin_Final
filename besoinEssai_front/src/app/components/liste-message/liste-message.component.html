@@ -1,0 +1,54 @@
+<!-- <div class="affichageMessage" *ngFor="let message of messages">
+    <h2>{{message?.texteMessage}}</h2>
+    <h2>{{message?.dateMessage}}</h2>
+</div> -->
+
+<div class="body">
+
+    <nav class="navbar-one flex">
+        <div class="left flex">
+            <div class="nom_entite" (click)="retour ()">
+                <i class="fa-solid fa-arrow-left iconBack"></i>
+                <!-- <span class="entite">CLIENT</span> -->
+            </div>
+        </div>
+        <div class="right flex">
+            <!-- <div class="message">
+                <i class="fa-solid fa-message icon"></i><span class="numMess" >{{nombreMessage}}</span>
+            </div> -->
+
+            <div class="nom_utilisateur">
+                <span *ngIf="nomUtilisateur" class="utilisateur">{{ nomUtilisateur.nomComplet }}</span>
+                <div class="deconnexion">
+                    <div class="container-deconnexion" (click)="Deconnexion()">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <span>Deconnexion</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <nav class="navbar-second">
+        <div class="logo">
+            <i class="fa-solid fa-message icon"></i><br>       
+            <span>Messages</span>
+        </div>
+    </nav>
+
+
+
+
+    <ul>
+        <h1>Messages <span class="numMess" >{{nombreMessage}}</span></h1>
+        <li *ngFor="let message of messages">
+            <p>Message : {{message?.texteMessage}}<br>Envoye par : <strong>{{message?.utilisateurEmetteur}}</strong></p>
+            <div class="date">
+                <h3>{{message?.dateMessage | date:'dd'}}<br>
+                    <span>{{message?.dateMessage | date:'MM'}}</span>
+                </h3>
+                <button class="lu" (click)="marquerCommeLu(message)">Lu</button>
+            </div>
+        </li>
+    </ul>
+</div>

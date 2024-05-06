@@ -1,0 +1,122 @@
+<!-- <div *ngFor="let besoin of besoins">
+    <p>{{besoin?.application?.nomApplication}}</p>
+    <p>{{besoin?.titreBesoin}}</p> -->
+
+    <!-- <form (submit)="recupererDev(besoin)">
+    <select name="utilisateurSelect" id="utilisateurSelect" [(ngModel)]="nom">
+        <option *ngFor="let utilisateur of utilisateurs" [value]="utilisateur.nomComplet">{{utilisateur.nomComplet}}
+        </option>
+    </select>
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+    </form> -->
+    <!-- <div *ngFor="let commentaire of besoin.commentaires">
+    </div>
+
+    <input type="radio" value="accepte">
+    <input type="radio" value="refuse">
+
+    <button (click)="onValid(besoin)">Valider</button>
+    <button (click)="onValid(besoin)">Refuser</button>
+</div> -->
+
+
+<div class="container">
+
+  <div class="sidebar">
+    <div class="logo">
+      <ul class="menu">
+
+        <li (click)="naviguerAcceuil()">
+          <!-- <a href=""> -->
+              <i class="fa-solid fa-house icon2"></i>       
+              <span>Acceuil</span>   
+            <!-- </a>         -->
+        </li>
+
+        <li (click)="naviguerApplication()">
+          <!-- <a href=""> -->
+            <i class="fa-solid fa-list icon2"></i>
+            <span>Liste</span>
+          <!-- </a> -->
+        </li>
+
+        <li (click)="naviguerRepartir()">
+          <!-- <a href=""> -->
+            <i class="fa-solid fa-user icon2"></i>
+            <span>Repartir</span>
+          <!-- </a> -->
+        </li>
+
+        <li (click)="naviguerChart()">
+          <!-- <a href=""> -->
+            <i class="fa-solid fa-chart-pie icon2"></i>
+            <span>Evolution</span>
+          <!-- </a> -->
+        </li>
+        <li class="logout" (click)="Deconnexion()">
+          <!-- <a href=""> -->
+            <i class="fa-solid fa-right-from-bracket icon2"></i>
+          <span>Deconnexion</span>
+          <!-- </a> -->
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+
+  <div class="tabular--wrapper">
+    <h1 class="main-title">Liste des besoins</h1>
+    <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Application</th>
+              <th>Besoin</th>
+              <th>Description</th>
+              <th>Date Creation</th>
+              <th>Traite par</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let besoin of besoins | paginate: { itemsPerPage: 5, currentPage: p }">
+              <td>{{besoin?.application?.nomApplication}}</td>
+              <td>{{besoin?.titreBesoin}}</td>
+              <td>{{besoin?.descriptionBesoin}}</td>
+              <td>{{besoin?.dateCreation | date:'dd/MM/YYYY'}}</td>
+              <td>{{besoin?.developpeurs?.nomComplet}}</td>
+              <td class="bouton"><button class="valider" (click)="onValid(besoin)">Valider</button>
+            </td>
+            </tr>
+          </tbody>
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </table>
+        
+      </div>
+    </div>
+</div>
+
+
+
+
+  <div class="container-modal">
+    <div class="success-modal" *ngIf="isModalVisible">
+        <div class="modal-content">
+            <i class="fa-solid fa-check check"></i>
+            <h2>Succès!</h2>
+            <p>Validation de besoin avec succès.</p>
+            <button (click)="closeSuccessModal()">OK</button>
+        </div>
+    </div>
+  </div>
+  <div class="container-modal-echec">
+    <div class="echec-modal" *ngIf="isModalVisible2">
+        <div class="modal-content-echec">
+            <i class="fa-solid fa-xmark mark"></i>            
+            <h2>Echec!</h2>
+            <p>Un probleme est survenu lors de la validation de besoin.</p>
+            <button (click)="closeEchecModal()">OK</button>
+        </div>
+    </div>
+  </div>

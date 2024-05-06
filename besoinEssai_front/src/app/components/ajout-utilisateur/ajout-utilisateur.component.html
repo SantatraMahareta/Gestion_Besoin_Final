@@ -1,0 +1,84 @@
+<!-- <form (submit)="ajoutUtilisateur()">
+    <div class="form-group">
+<label for="">Nom complet</label> 
+<input type="text" name="nom" [(ngModel)]="nomComplet"/>
+<label for="">Email</label>
+<input type="text" name="email" [(ngModel)]="email"/>
+<label for="">Mot de passe</label>
+<input type="text" name="motDePasse" [(ngModel)]="motDePasse"/>
+<label for="">Departement</label>
+<input type="text" name="departement" [(ngModel)]="nomDepart"/>
+<button type="submit" class="btn btn-primary">Enregistrer</button>
+    </div>
+</form> -->
+
+<div class="body">
+
+    <nav class="navbar-one flex">
+        <div class="left flex">
+            <div class="nom_entite">
+                <span class="entite">CREATION DE COMPTE</span>
+            </div>
+        </div>
+        <!-- <div class="right flex">
+            <div class="message" (click)="naviguerMessage()">
+                <i class="fa-solid fa-message"></i><span>17</span>
+            </div>
+            <div class="notification" (click)="naviguerNotification()" >
+                <i class="fa-solid fa-bell"></i><span>17</span>   
+                <div class="text">
+                    
+                </div>        
+            </div>
+            <div class="nom_utilisateur">
+                <span *ngIf="nomUtilisateur" class="utilisateur">{{ nomUtilisateur.nomComplet }}</span>
+            </div>
+        </div> -->
+    </nav>
+    
+    <nav class="navbar-second">
+        <div class="logo">
+            <i class="fa-solid fa-user-plus icon"></i>            
+            <span>Creation de compte</span>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="login form">
+            <header>Creation de compte</header>
+            <form action="" (submit)="ajoutUtilisateur()">
+                <input type="text" placeholder="Entrer votre nom" [(ngModel)]="nomComplet" name="nom">
+                <input type="text" placeholder="Entrer votre email" [(ngModel)]="email" name="email">
+                <input type="text" placeholder="Entrer votre departement" [(ngModel)]="nomDepart" name="departement">
+                <input type="password" placeholder="Entrer votre mot de passe" [(ngModel)]="motDePasse" name="motDePasse">
+                <input type="submit" value="S'authentifier" class="button">
+            </form>
+            <div class="signup">
+            <span class="signup">Vous avez une compte? 
+            </span>
+            <a [routerLink]="['/login']">Veuillez vous authentifier ici</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-modal">
+    <div class="success-modal" *ngIf="isModalVisible">
+        <div class="modal-content">
+            <i class="fa-solid fa-check check"></i>
+            <h2>Succès!</h2>
+            <p>L'utilisateur a été ajouté avec succès.</p>
+            <button (click)="closeSuccessModal()">OK</button>
+        </div>
+    </div>
+</div>
+<div class="container-modal-echec">
+    <div class="echec-modal" *ngIf="isModalVisible2">
+        <div class="modal-content-echec">
+            <i class="fa-solid fa-xmark mark"></i>            
+            <h2>Echec!</h2>
+            <p>Un probleme est survenu lors de l'ajout de l'utilisateur.</p>
+            <button (click)="closeEchecModal()">OK</button>
+        </div>
+    </div>
+</div>

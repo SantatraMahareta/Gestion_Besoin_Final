@@ -1,0 +1,81 @@
+<div class="body">
+    <nav class="navbar-one flex">
+        <div class="left flex">
+            <div class="nom_entite">
+                <span class="entite" (click)="naviguerAcceuil()">SVTFA</span>
+            </div>
+        </div>
+        <div class="right flex">
+            <div class="message" (click)="naviguerNotification()">
+                <i class="fa-solid fa-message icon"></i><span class="numMess" >{{nombreMessage}}</span>
+            </div>
+            <div class="notification" (click)="naviguerMessage()" >
+                <i class="fa-solid fa-bell icon"></i><span class="numMess">{{nombreCommentaire}}</span>       
+            </div>
+            <div class="nom_utilisateur">
+                <span *ngIf="nomUtilisateur" class="utilisateur">{{ nomUtilisateur.nomComplet }}</span>
+                <div class="deconnexion">
+                    <div class="container-deconnexion" (click)="Deconnexion()">
+                        <i class="fa-solid fa-right-from-bracket icon2"></i>
+                        <span>Deconnexion</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <nav class="navbar-second">
+        <div class="logo">
+            <i class="fa-solid fa-check icon"></i>
+            <span>Valider les besoins</span>
+        </div>
+    </nav>
+
+
+    <!-- <div *ngFor="let application of applications">
+        <p><a [routerLink]="['/besoinSvtfa', application.applicationId]">
+            {{ application?.nomApplication }}
+        </a></p>
+    </div> -->
+
+    <div class="application-list">
+        <div class="application" *ngFor="let application of applications" (click)="naviguerBesoin(application.applicationId)">
+          <p>
+            <!-- <a [routerLink]="['/besoinSvtfa', application.applicationId]"> -->
+              {{ application?.nomApplication }}
+            <!-- </a> -->
+          </p>
+        </div>
+      </div>
+
+</div>
+<div class="messageModal" *ngIf="isSuccessModalVisible">
+    <ul>
+        <h1>Messages</h1>
+        <li *ngFor="let message of messages">
+            <p>Message : {{message?.texteMessage}}<br>Envoye par : <strong>{{message?.utilisateurEmetteur}}</strong></p>
+            <div class="date">
+                <h3>{{message?.dateMessage | date:'dd'}}<br>
+                    <span>{{message?.dateMessage | date:'MM'}}</span>
+                </h3>
+                <button (click)="marquerCommeLu(message)">Marquer comme lu</button>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="commentaireModal" *ngIf="isSuccess2ModalVisible">
+    <ul>
+        <h1>Notifications</h1>
+        <li *ngFor="let commentaire of commentaires">
+            <div class="date">
+                <h3>{{commentaire?.dateCommentaire | date:'dd'}}<br>
+                    <span>{{commentaire?.dateCommentaire | date:'MM'}}</span>
+                </h3>
+                
+            </div>
+            <p>{{commentaire?.texteCommentaire}}<br>Envoye par : <strong>{{commentaire?.utilisateurEmetteur}}</strong></p>
+            <button (click)="marquerCommeLu(commentaire)">Marquer comme lu</button>
+        </li>
+    </ul>
+</div>

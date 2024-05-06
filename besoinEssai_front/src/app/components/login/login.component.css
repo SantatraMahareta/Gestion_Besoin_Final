@@ -1,0 +1,147 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.body{
+    width: 100%;
+    height: 100vh;
+    font-family: 'Poppins',sans-serif;
+}
+nav{
+    padding: 0 50px;
+    width: 100%;
+}
+
+.flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar-one{
+    background: rgb(35, 1, 52);
+    color: #fff;
+    height: 70px;
+}
+.entite{
+    font-size: 40px;
+}
+
+.utilisateur{
+    color: rgb(35, 1, 52);
+    border: 1px solid #fff;
+    padding: 3px;
+    border-radius: 40px;
+    font-size: 20px;
+    background: #fff;
+    font-weight: 500;
+}
+
+.navbar-second{
+    height: 120px;
+    background: rgb(237, 235, 235);
+}
+.logo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1rem;
+}
+.logo .icon{
+    font-size: 40px;
+    color: rgba(75, 43, 204, 0.8);
+}
+.logo span{
+    font-size: 25px;
+    font-weight: 400;
+    color: rgb(35, 1, 52);
+}
+.container{
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%,-50%);
+   max-width: 430px;
+   width: 100%;
+   background: #fff; 
+   border-radius: 7px;
+   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+.container .form{
+    padding: 2rem;
+
+}
+.form header{
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+.form input{
+    height: 60px;
+    width: 100%;
+    padding: 0 15px;
+    font-size: 17px;
+    margin-bottom: 1.3rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+}
+.form input:focus{
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2); 
+}
+a{
+    /* font-size: 16px; */
+    color: rgba(113, 99, 186, 255);
+    text-decoration: none;
+}
+ a:hover{
+    text-decoration: underline;
+}
+.button{
+    color: #fff;
+    background: rgba(113, 99, 186, 255);
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-top: 1.7rem;
+    cursor: pointer;
+    transition: 0.4s;
+}
+.button:hover{
+    background: rgba(105, 30, 186, 255);
+}
+.signup{
+    font-size: 17px;
+    text-align: center;
+}
+.error-messages {
+    background-color: #ffcccc;
+    color: #cc0000;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+/* @media screen and (max-width: 767px) {
+
+    .navbar-one{
+        background: rgb(35, 1, 52);
+        color: #fff;
+        height: 70px;
+    }
+    .entite{
+        font-size: 25px;
+    }
+    
+    .utilisateur{
+        color: rgb(35, 1, 52);
+        border: 1px solid #fff;
+        padding: 3px;
+        border-radius: 40px;
+        font-size: 18px;
+        background: #fff;
+        font-weight: 500;
+    }
+
+} */

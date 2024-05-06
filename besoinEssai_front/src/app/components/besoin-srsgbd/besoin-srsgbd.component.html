@@ -1,0 +1,10 @@
+<div *ngFor="let besoin of besoins">
+    <p>{{besoin?.application?.nomApplication}}</p>
+    <p>{{besoin?.titreBesoin}}</p>
+    <div *ngFor="let commentaire of besoin.commentaires">
+    </div>
+    <input type="radio" value="accepte">
+    <input type="radio" value="refuse">
+    <button (click)="onValid(besoin)">Valider</button>
+    <button (click)="onValid(besoin)">Refuser</button>
+</div>

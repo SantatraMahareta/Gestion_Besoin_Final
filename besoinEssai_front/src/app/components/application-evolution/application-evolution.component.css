@@ -1,0 +1,108 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.body{
+    width: 100%;
+    height: 100vh;
+    font-family: 'Poppins',sans-serif;
+}
+nav{
+    padding: 0 50px;
+    width: 100%;
+}
+
+.flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar-one{
+    background: rgb(35, 1, 52);
+    color: #fff;
+    height: 70px;
+}
+.entite{
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.utilisateur{
+    color: rgb(35, 1, 52);
+    border: 1px solid #fff;
+    padding: 3px;
+    border-radius: 40px;
+    font-size: 20px;
+    background: #fff;
+    font-weight: 500;
+}
+
+.navbar-second{
+    height: 120px;
+    background: rgb(237, 235, 235);
+}
+.logo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1rem;
+}
+.logo .icon{
+    font-size: 40px;
+    color: rgba(75, 43, 204, 0.8);
+}
+.logo span{
+    font-size: 25px;
+    font-weight: 400;
+    color: rgb(35, 1, 52);
+}
+.right{
+    display: flex;
+    gap: 4rem;
+}
+
+div.application-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  div.application {
+    margin: 10px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  div.application {
+    text-decoration: none;
+    color: rgba(75, 43, 204, 0.8);;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  div.application:hover {
+    color: rgba(64, 31, 198, 0.8);;
+  }
+  .deconnexion{
+    display: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+}
+.nom_utilisateur:hover .deconnexion{
+    display: block;
+    position: absolute;
+    background: #fff;
+    margin-top: 3px;
+    margin-left: 5px;
+    padding: 13px;
+    color: rgba(75, 43, 204, 0.8);
+    border-radius: 3px;
+}
+.nom_utilisateur{
+    cursor: pointer;
+}  

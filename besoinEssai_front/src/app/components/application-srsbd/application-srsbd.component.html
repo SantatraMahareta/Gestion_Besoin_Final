@@ -1,0 +1,67 @@
+<div class="body">
+
+
+    <nav class="navbar-one flex">
+        <div class="left flex">
+            <div class="nom_entite">
+                <span class="entite" (click)="naviguerAcceuil()">SRSBD</span>
+            </div>
+        </div>
+        <div class="right flex">
+            <div class="nom_utilisateur">
+                <span *ngIf="nomUtilisateur" class="utilisateur">{{ nomUtilisateur.nomComplet }}</span>
+                <div class="deconnexion">
+                    <div class="container-deconnexion" (click)="Deconnexion()">
+                        <i class="fa-solid fa-right-from-bracket icon2"></i>
+                        <span>Deconnexion</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <nav class="navbar-second">
+        <div class="logo">
+            <i class="fa-solid fa-check icon"></i>
+            <span>Valider les appllications</span>
+        </div>
+    </nav>
+
+
+    <!-- <div *ngFor="let application of applications">
+        <p><a [routerLink]="['/besoinSrsgbd', application.applicationId]">
+            {{ application?.nomApplication }}
+        </a></p>
+        <button (click)="onValid(application)">Valider</button>
+    </div> -->
+
+    <ul class="besoins-list">
+        <li class="besoin" *ngFor="let application of applications">
+          <p>Nom de l'application: <b>{{application?.nomApplication}}</b></p>
+            <button type="submit" class="btn btn-primary" (click)="onValid(application)">Valider</button>
+        </li>
+    </ul>
+
+
+</div>
+
+<div class="container-modal">
+    <div class="success-modal" *ngIf="isModalVisible">
+        <div class="modal-content">
+            <i class="fa-solid fa-check check"></i>
+            <h2>Succès!</h2>
+            <p>Validation de l'application avec succès.</p>
+            <button (click)="closeSuccessModal()">OK</button>
+        </div>
+    </div>
+  </div>
+  <div class="container-modal-echec">
+    <div class="echec-modal" *ngIf="isModalVisible2">
+        <div class="modal-content-echec">
+            <i class="fa-solid fa-xmark mark"></i>            
+            <h2>Echec!</h2>
+            <p>Un probleme est survenu lors de la validation de l'application.</p>
+            <button (click)="closeEchecModal()">OK</button>
+        </div>
+    </div>
+  </div>

@@ -1,0 +1,11 @@
+<header>
+    <h1>CLIENT</h1>
+    <nav>
+        <a routerLink="application" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Liste</a>
+        <!-- <a routerLink="ajoutBesoin" routerLinkActive="active">Creation</a> -->
+        <a routerLink="notification/:id" routerLinkActive="active">Notification</a>
+        <!-- <a routerLink="message/:id" routerLinkActive="active">Informer</a> -->
+        <a [routerLink]="['/chart/', id, applicationId]">Voir l'évolution</a>
+
+    </nav>
+</header>

@@ -1,0 +1,35 @@
+<div class="contact-form">
+    <h1></h1>
+    <form (submit)="emettreCommentaire()">
+        <div class="txtb">
+            <label for="">Email :</label>
+            <input type="text" name="email" placeholder="Veuillez saisir votre email" [(ngModel)]="email1"/>
+        </div>
+        <div class="txtb">
+            <label for="">Commentaire :</label> 
+            <textarea name="message" [(ngModel)]="coms"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Envoyer</button>
+    </form>
+</div>
+
+<div class="container-modal">
+    <div class="success-modal" *ngIf="isModalVisible">
+        <div class="modal-content">
+            <i class="fa-solid fa-check check"></i>
+            <h2>Succès!</h2>
+            <p>Ajout de commentaire avec succès.</p>
+            <button (click)="closeSuccessModal()">OK</button>
+        </div>
+    </div>
+  </div>
+  <div class="container-modal-echec">
+    <div class="echec-modal" *ngIf="isModalVisible2">
+        <div class="modal-content-echec">
+            <i class="fa-solid fa-xmark mark"></i>            
+            <h2>Echec!</h2>
+            <p>Un probleme est survenu lors de l'ajout de commentaie.</p>
+            <button (click)="closeEchecModal()">OK</button>
+        </div>
+    </div>
+  </div>

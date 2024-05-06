@@ -1,0 +1,228 @@
+/* styles.css */
+/* @import 'ngx-pagination/dist/ngx-pagination.css'; */
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    font-family: "Poppins",sans-serif;
+}
+.sidebar{
+    position: sticky;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 110px;
+    height: 100vh;
+    padding: 30px 15px;
+    color: #fff;
+    /* overflow: hidden; */
+    transition: all 0.5s linear;
+    background: rgba(113, 99, 186, 255); 
+    display: flex; 
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.sidebar:hover{
+    width: 250px;
+}
+.sidebar:hover .menu li span{
+    display: block;
+}
+.sidebar:hover .menu li{
+    justify-content: flex-start;
+}
+
+.sidebar:hover .menu li .icon2{
+    margin-right: 10px;
+}
+.menu .icon2{
+    font-size: 30px;
+}
+.menu{
+    list-style: none;
+    padding: 0 15px;
+}
+.menu li{
+    margin: 30px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.menu li span{
+    white-space: nowrap;
+    display: none;
+}
+.menu .logout{
+    bottom: 0;
+}.container{
+    display: flex;
+}
+.tabular--wrapper{
+    background: #fff;
+    margin-top: 1rem;
+    border-radius: 10px;
+    padding: 2rem;
+    width: 100%;
+}
+.table-container{
+    width: 100%;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+thead{
+    background: rgba(113, 99, 186, 255);
+    color: #fff;
+}
+th{
+    padding: 15px;
+    text-align: left;
+}
+tbody{
+    background: #f2f2f2;
+}
+td{
+    padding: 15px;
+    font-size: 14px;
+    color: #333;
+}
+tr:nth-child(even){
+    background-color: #fff;
+}
+tfoot{
+    background: rgba(113, 99, 186, 255);
+    font-weight: bold;
+    color: #fff;
+}
+tfoot td{
+    padding: 1;
+}
+.supprimer{
+    color: red;
+}
+.modifier{
+    color: green;
+}
+.bouton{
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    gap: 2px;
+    /* background: rgba(113, 99, 186, 255); */
+    color: #fff;
+    /* padding: 2px; */
+    /* border: 5px; */
+}
+
+.container-modal{
+    background: #6fd649;
+}
+.success-modal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal-content{
+    width: 400px;
+    background: #fff;
+    border-radius: 6px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    padding: 0 30px 30px;
+    color: #333;
+}
+.modal-content h2{
+    font-size: 38px;
+    font-weight: 500;
+    margin: 30px 0 10px;
+}
+.modal-content button{
+    width: 100%;
+    margin-top: 50px;
+    padding: 10px 0;
+    background: #6fd649;
+    color: #fff;
+    border: 0;
+    outline: none;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+}
+.check{
+    font-size: 56px;
+    background: #6fd649;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+}
+
+.container-modal-echec{
+    background: red;
+}
+.echec-modal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal-content-echec{
+    width: 400px;
+    background: #fff;
+    border-radius: 6px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    padding: 0 30px 30px;
+    color: #333;
+}
+.modal-content-echec h2{
+    font-size: 38px;
+    font-weight: 500;
+    margin: 30px 0 10px;
+}
+.modal-content-echec button{
+    width: 100%;
+    margin-top: 50px;
+    padding: 10px 0;
+    background: red;
+    color: #fff;
+    border: 0;
+    outline: none;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+}
+.mark{
+    font-size: 56px;
+    background: red;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+}
+.valider{
+background: rgba(113, 99, 186, 255);
+border: none;
+padding: 5px;
+color: #fff;
+border-radius: 2px;
+}
+
+.refuser{
+  background: rgba(113, 99, 186, 255);  
+  border: none;
+  padding: 5px;
+  color: #fff;
+  border-radius: 2px;
+
+}
